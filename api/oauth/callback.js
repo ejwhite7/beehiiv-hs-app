@@ -20,8 +20,16 @@ export default async function handler(req, res) {
       headers: { Authorization: `Bearer ${resp.data.access_token}` }
     });
 
+    console.log('HubSpot user info:', userResp.data);
+
+    const hubspotUserId = userResp.data.id;
+    if (!hubspotUserId) {
+      console.error('No HubSpot user ID found in response:', userResp.data);
+      return res.status(500).send('OAuth Error: No HubSpot user ID found');
+    }
+
     await saveUserTokens({
-      hubspot_user_id: userResp.data.user_id,
+      hubspot_user_id: hubspotUserId,
       access_token: resp.data.access_token,
       refresh_token: resp.data.refresh_token
     });
