@@ -2,7 +2,7 @@ import { Pool } from 'pg';
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
+  ssl: { require: true, rejectUnauthorized: false }
 });
 
 export async function saveUserTokens({ hubspot_user_id, access_token, refresh_token }) {
