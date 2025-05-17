@@ -12,8 +12,7 @@ export default async function handler(req, res) {
     await registerBeehiivWebhook({
       publication_id: beehiiv_publication_id,
       beehiiv_api_key,
-      webhook_url,
-      secret: process.env.BEEHIIV_WEBHOOK_SECRET
+      webhook_url
     });
   } catch (err) {
     return res.status(500).send(`Failed to register Beehiiv webhook: ${err.message}`);

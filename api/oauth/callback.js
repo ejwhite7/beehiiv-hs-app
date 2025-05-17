@@ -28,6 +28,7 @@ export default async function handler(req, res) {
 
     res.status(200).send('OAuth Success! You can close this window.');
   } catch (err) {
+    console.error('OAuth callback error:', err);
     res.status(500).send(`OAuth Error: ${err.message}`);
   }
 } 
