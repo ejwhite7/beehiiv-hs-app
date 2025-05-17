@@ -1,0 +1,30 @@
+{
+  "name": "beehiiv",
+  "uid": "beehiiv",
+  "description": "Connect your beehiiv account to HubSpot",
+  "allowedUrls": ["https://beehiiv-hs-app.vercel.app/"],
+  "auth": {
+    "redirectUrls": ["https://beehiiv-hs-app.vercel.app/api/oauth/callback"],
+    "requiredScopes": ["crm.objects.contacts.read", "crm.objects.contacts.write", "crm.schemas.contacts.read", "crm.schemas.contacts.write"],
+    "optionalScopes": [],
+    "conditionallyRequiredScopes": []
+  },
+  "support": {
+    "supportEmail": "support@beehiiv.com",
+    "documentationUrl": "https://developers.beehiiv.com/",
+    "supportUrl": "https:/app.beehiiv.com/help",
+    "supportPhone": "+18005555555"
+  },
+  "extensions": {
+    "crm": {
+      "cards": [
+        {
+          "file": "./extensions/example-card.json"
+        }
+      ]
+    }
+  },
+  "webhooks": {
+    "file": "./webhooks/webhooks.json"
+  }
+}
