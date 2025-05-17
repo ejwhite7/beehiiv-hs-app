@@ -22,10 +22,10 @@ export default async function handler(req, res) {
 
     console.log('HubSpot user info:', userResp.data);
 
-    const hubspotUserId = userResp.data.id || userResp.data.user_id;
+    const hubspotUserId = userResp.data.portalId;
     if (!hubspotUserId) {
-      console.error('No HubSpot user ID found in response:', userResp.data);
-      return res.status(500).send('OAuth Error: No HubSpot user ID found');
+      console.error('No HubSpot portalId found in response:', userResp.data);
+      return res.status(500).send('OAuth Error: No HubSpot portalId found');
     }
 
     await saveUserTokens({
